@@ -1,0 +1,953 @@
+* {
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  float: none;
+  clear: both;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.counter_top_block, .counter_block, .count_box_nodisplay {
+  display: none;
+}
+
+.header {
+  background-color: #304053;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  height: 100px;
+  padding: 0 50px 0 60px;
+  color: #fff;
+  position: relative;
+  z-index: 6;
+}
+
+.header__title {
+  font-style: normal;
+  font-weight: normal;
+  /*font-size: 40px;
+  line-height: 54px;*/
+  font-size: 32px;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+
+.header__posttitle {
+  font-style: normal;
+  font-weight: normal;
+  /*font-size: 24px;
+  line-height: 33px;*/
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.header__socials {
+  position: relative;
+  z-index: 20;
+}
+
+.map-section {
+  background: url('assets/images/sky.svg') no-repeat 0 0;
+  background-size: cover;
+  width: 100%;
+  height: calc(100vh - 100px);
+  position: relative;
+}
+
+.map-section__inner {
+  position: relative;
+  overflow: auto;
+  /*height: calc(100% - 150px);*/
+  height: 100%;
+  /*padding-top: 120px;*/
+  padding-top: 55px;
+}
+
+/**/
+
+.map-section__title {
+  font-style: normal;
+  font-weight: normal;
+  /*font-size: 40px;
+  line-height: 54px;*/
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #304053;
+  /*padding-top: 4%;*/
+  /*padding-top: 70px;*/
+  padding-top: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+  position: absolute;
+  z-index: 10;
+}
+
+.map {
+  position: relative;
+  /*max-width: 1920px;**/
+  margin: 0 auto;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+.map__inner {
+  position: relative;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.map-img {
+  display: block;
+  width: 100%;
+}
+
+.zoom {
+  position: absolute;
+  left: 5%;
+  top: 30%;
+  width: 64px;
+  z-index: 20;
+}
+
+.zoom-in, .zoom-out {
+  margin-bottom: 25px;
+  width: 100%;
+  height: 64px;
+  background: #304053;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 38px;
+  font-weight: 700;
+  border-radius: 50%;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+
+  span {
+    position: relative;
+    top: -2px;
+  }
+}
+
+.clouds {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.cloud {
+  position: absolute;
+  z-index: 5;
+}
+
+
+.boat {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 3%;
+}
+
+.plane {
+  position: absolute;
+  z-index: 6;
+  display: block;
+  width: 2.4%;
+}
+
+
+.geo-tag {
+  position: absolute;
+  display: block;
+  background: url('assets/images/geo-tag.svg') no-repeat 0 0;
+  background-size: 100%;
+  /*width: 96px;
+  height: 116px;*/
+  width: 48px;
+  height: 58px;
+  z-index: 9;
+  transform: translate(-40%, -80%);
+
+  &:hover {
+    margin-top: -5px;
+  }
+
+  span {
+    position: absolute;
+    color: #CF1D1D;
+    /*font-size: 1.1vw;*/
+    /*font-size: 21px;*/
+    font-size: 13px;
+    font-weight: 700;
+    left: 45%;
+    /*top: 27%;*/
+    top: 24%;
+    transform: translateX(-50%);
+  }
+}
+
+.geo-tag_blue {
+  background: url('assets/images/geo-tag_blue.svg') no-repeat 0 0;
+  background-size: contain;
+  width: 30px;
+  height: 40px;
+
+  span {
+    top: 21%;
+    left: 50%;
+  }
+}
+
+.tag_1 {
+  top: 7%;
+  left: 14%;
+}
+
+.regions-tile {
+  position: relative;
+  background: url(assets/images/regions/lipetsk.jpg) no-repeat right bottom #373f0f;
+  background-size: 100%;
+}
+
+.regions-tile > ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.region {
+  position: relative;
+  height: 428px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center ;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  &:hover .region__link {
+    box-shadow: 0 0 0.5vw 0.1vw rgba(249, 247, 37, 0.5);
+  }
+}
+
+.region__text {
+  color: #fff;
+  text-align: center;
+}
+
+.region__title {
+  font-weight: bold;
+  /*font-size: 40px;*/
+  font-size: 2vw;
+  /*line-height: 54px;*/
+  line-height: 2.8vw;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  padding: 0 1.5vw;
+  position: relative;
+  z-index: 3;
+}
+
+.region__descr {
+  font-style: normal;
+  font-weight: normal;
+  /*font-size: 24px;*/
+  font-size: 1.25vw;
+  /*line-height: 33px;*/
+  line-height: 1.7vw;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 0 1.5vw;
+  position: relative;
+  z-index: 3;
+}
+
+.region__link {
+  /*font-size: 18px;*/
+  font-size: 0.9vw;
+  /*height: 58px;
+  line-height: 58px;*/
+  height: 3vw;
+  line-height: 3vw;
+  text-align: center;
+  text-transform: uppercase;
+  border: 2px solid #FFFFFF;
+  /*border-radius: 16px;*/
+  border-radius: 0.83vw;
+  color: #fff;
+  display: inline-block;
+  text-decoration: none;
+  /*padding: 0 25px;*/
+  padding: 0 1.3vw;
+  transition: all 0.3s;
+  position: relative;
+  z-index: 3;
+
+  &:hover {
+    /*box-shadow: 0 0 10px 2px rgba(249, 247, 37, 0.5);*/
+    box-shadow: 0 0 0.5vw 0.1vw rgba(249, 247, 37, 0.5);
+  }
+
+  /*&:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }*/
+}
+
+.region__blindLink {
+  display: block;
+  text-decoration: none;
+  width: 0;
+  height: 0;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+  }
+}
+
+/****  Cards   *****/
+
+.cards {
+  display: none;
+}
+
+.card {
+  /*max-width: 800px;*/
+  max-width: 600px;
+  width: 100vw;
+  /*height: calc(100vh - 160px);
+  height: calc(100vh - 220px);*/
+  height: calc(100vh - 100px);
+  background-color: #fff;
+  padding: 25px;
+}
+
+.card__inner {
+  position: static;
+  padding-top: 50px;
+  height: 100%;
+}
+
+.card_content {
+  max-height: 100%;
+}
+
+.card_content-inner {
+  padding-right: 20px;
+}
+
+.card__title {
+  font-style: normal;
+  font-weight: bold;
+  /*font-size: 40px;*/
+  /*font-size: 32px;
+  line-height: 54px;*/
+  font-size: 24px;
+  line-height: 33px;
+  text-transform: uppercase;
+  color: #304053;
+  position: absolute;
+  height: 55px;
+  top: 25px;
+  padding-right: 40px;
+}
+
+.card__descr, .card__text p {
+  font-style: normal;
+  font-weight: normal;
+  /*font-size: 24px;
+  line-height: 33px;*/
+  font-size: 16px;
+  line-height: 28px;
+  color: #304053;
+  margin-bottom: 10px;
+}
+
+.card__link {
+  display: inline-block;
+  border: 2px solid #304053;
+  border-radius: 16px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  height: 58px;
+  line-height: 55px;
+  padding: 0 25px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #304053;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.card__pic {
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.card__pic-wrapper {
+  height: 240px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.card__text {
+  margin-bottom: 20px;
+}
+
+.card__text-inner {
+  padding-right: 20px;
+}
+
+.simplebar-scrollbar::before {
+  background: #bbb;
+}
+
+
+/**** Popup Gallery ****/
+
+.zgallery__arrow {
+  background-image: url('assets/images/arrow_r.svg');
+  width: 112px;
+  height: 112px;
+  background-size: 100%;
+}
+
+.zgallery__arrow-left {
+  left: -120px;
+}
+
+.zgallery__arrow-right {
+  right: -120px;
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  background: #304053;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.dots {
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+  left: 0;
+  text-align: center;
+}
+
+.zgallery__close::after {
+  width: 28px;
+  height: 28px;
+  margin-left: -11px;
+  margin-top: -15px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+/*** Card Socials ***/
+
+.card__socials {
+  margin: 20px 0;
+}
+
+.share-link {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #304053;
+  border-radius: 4px;
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  margin-right: 15px;
+  text-decoration: none;
+
+  .fa {
+    display: inline;
+    vertical-align: middle;
+  }
+
+  .fa::before {
+    font-size: 20px;
+    text-decoration: none;
+    display: inline;
+  }
+}
+
+.acc_soc {
+  display: none;
+}
+
+/** авыфыва */
+
+.all-regions-btn-wrapper {
+  width: 100%;
+  /*position: absolute;*/
+  position: relative;
+  z-index: 30;
+  text-align: center;
+  padding-top: 70px;
+  margin-bottom: 15px;
+}
+
+.all-regions-btn {
+  background: #304053;
+  border-radius: 8px;
+  height: 34px;
+  line-height: 34px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 12px;
+  border: none;
+}
+
+.close {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  text-decoration: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  z-index: 10;
+}
+
+.close::after {
+    content: '×';
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    margin-top: -16px;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 60px;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.oveflay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 25;
+
+  &.show {
+    display: block;
+  }
+}
+
+.map-cover {
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(48, 64, 83, 0) 1.79%, #304053 100%);
+  position: absolute;
+  width: 100%;
+  height: calc(100vh - 120px);
+  top: 120px;
+  left: 0;
+  z-index: 28;
+  padding: 200px 25px 0;
+  display: none;
+}
+
+.map-cover__text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 10px 0 20px;
+}
+
+.map-cover__button {
+  border-radius: 8px;
+  height: 34px;
+  line-height: 34px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 12px;
+  border: 2px solid #FFFFFF;
+  background-color: transparent;
+}
+
+.hide {
+  display: none;
+}
+
+.region-tag {
+  display: none;
+}
+
+.ui-tooltip {
+  font-size: 12px;
+  color: #000000;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+
+  /*&:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    border: 10px solid transparent;
+    border-top: 10px solid #fff;
+  }*/
+}
+
+html.popup-open .ui-tooltip {
+  display: none !important;
+}
+
+.after-text-block {
+  margin-top: -10px;
+
+  p {
+    margin: 10px 0;
+    line-height: 28px;
+  }
+}
+
+
+/* Animations */
+
+/*@keyframes cloud1 {
+  0% { left: 20%}
+  3% { left: 20%}
+  10% { left: 25%}
+  30% { left: 55%}
+  40% { left: 60%}
+  43% { left: 60%}
+  90% { left: 25%}
+  100% { left: 20%}
+}*/
+
+@keyframes cloud1 {
+  0% { left: 20%}
+  50% { left: 60%}
+  100% { left: 20%}
+}
+
+@keyframes cloud3 {
+  0% { left: 24%}
+  50% { left: 50%}
+  100% { left: 24%}
+}
+
+@keyframes cloud4 {
+  0% { left: 67%}
+  50% { left: 93%}
+  100% { left: 67%}
+}
+
+@keyframes cloud5 {
+  0% { left: 66%}
+  50% { left: 60%}
+  100% { left: 66%}
+}
+
+@keyframes cloud6 {
+  0% { left: 50%}
+  25% { left: 60%}
+  75% { left: 40%}
+  100% { left: 50%}
+}
+
+@keyframes cloud7 {
+  0% { right: -150px}
+  50% { right: 100%}
+  100% { right: -150px}
+}
+
+@keyframes cloud8 {
+  0% { left: -180px}
+  50% { left: 300px}
+  100% { left: -180px}
+}
+
+@keyframes cloud9 {
+  0% { left: 45%}
+  25% { left: 60%}
+  75% { left: 30%}
+  100% { left: 45%}
+}
+
+.cloud_1 {
+  /*left: 40%;*/
+  top: 45px;
+  animation: cloud1 100s infinite linear;
+}
+
+.cloud_2 {
+  left: 0;
+  top: 10%;
+}
+
+.cloud_3 {
+  left: 24%;
+  top: 8%;
+  animation: cloud3 60s infinite linear;
+}
+
+.cloud_4 {
+  left: 67%;
+  top: 8%;
+  animation: cloud4 60s infinite linear;
+}
+
+.cloud_5 {
+  left: 66%;
+  top: 11%;
+  animation: cloud5 20s infinite linear;
+}
+
+.cloud_6 {
+  left: 50%;
+  top: 18%;
+  animation: cloud6 40s infinite linear;
+}
+
+.cloud_7 {
+  right: -150px;
+  top: 13%;
+  animation: cloud7 180s infinite linear;
+}
+
+.cloud_8 {
+  left: -180px;
+  top: 30%;
+  animation: cloud8 30s infinite linear;
+}
+
+.cloud_9 {
+  left: 45%;
+  top: 33%;
+  animation: cloud9 30s infinite linear;
+}
+
+.cloud_10 {
+  right: 0;
+  top: 50%;
+}
+
+.cloud_11 {
+  left: 0;
+  top: 60%;
+}
+
+.cloud_12 {
+  bottom: 0;
+  left: 70%;
+}
+
+@keyframes plane1 {
+  0% { left: -5%; top: 70%; opacity: 1; transform: rotate(-80deg) scale(1)}
+  30% { opacity: 1; transform: rotate(-80deg) scale(1)}
+  50% { left: 60%; top: -90px; opacity: 0; transform: rotate(-80deg) scale(0)}
+  100% { left: 60%; top: -90px; opacity: 0}
+}
+
+@keyframes plane2 {
+  0% { left: 10%; top: -90px; opacity: 0; transform: scale(0)}
+  5% { opacity: 0}
+  10% { opacity: 1; transform: scale(1)}
+  30% { opacity: 1; transform: scale(1)}
+  50% { left: 35%; top: 110%; opacity: 0; transform: scale(0)}
+  100% { left: 35%; top: 110%; opacity: 0; transform: scale(0)}
+}
+
+@keyframes plane3 {
+  0% { left: 55%; top: -90px; opacity: 0; transform: rotate(90deg) scale(0)}
+  10% { opacity: 1; transform: rotate(90deg) scale(1)}
+  40% { opacity: 1; transform: rotate(90deg) scale(1)}
+  50% { left: -5%; top: 80%; }
+  100% { left: -5%; top: 80%; }
+}
+
+@keyframes plane4 {
+  0% { left: -5%; top: 90%; opacity: 1;}
+  45% { opacity: 1; }
+  50% { left: 120%; top: 30%; opacity: 0;}
+  100% { left: 120%; top: 30%; }
+}
+
+@keyframes plane5 {
+  0% { left: 110%; top: 45%; opacity: 1; transform: rotate(90deg) scale(1)}
+  30% { opacity: 1; transform: rotate(90deg) scale(1)}
+  40% { opacity: 0; transform: rotate(90deg) scale(0)}
+  50% { left: 55%; top: 110%; opacity: 0; }
+  100% { left: 55%; top: 110%; opacity: 0 }
+}
+
+@keyframes plane6 {
+  0% { left: 110%; top: 0%; opacity: 1; transform: rotate(90deg) scale(1)}
+  40% { opacity: 1; transform: rotate(90deg) scale(1)}
+  50% { left: 30%; top: 110%; opacity: 0; transform: rotate(90deg) scale(0)}
+  100% { left: 30%; top: 110%; }
+}
+
+.plane_1 {
+  /*left: 12%;
+  top: 49%;*/
+  transform: rotate(-80deg);
+  animation: plane1 40s infinite linear;
+}
+
+.plane_2 {
+  /*left: 19%;
+  top: 38%;*/
+  animation: plane2 40s infinite linear 10s;
+}
+
+.plane_3 {
+  /*left: 30%;
+  top: 33%;*/
+  transform: rotate(90deg);
+  animation: plane3 40s infinite linear 20s;
+}
+
+.plane_4 {
+  /*left: 49%;
+  top: 62%;*/
+  transform: rotate(-70deg);
+  animation: plane4 50s infinite linear 30s;
+}
+
+.plane_5 {
+  /*left: 79%;
+  top: 71%;*/
+  transform: rotate(90deg);
+  animation: plane5 40s infinite linear 10s;
+}
+
+.plane_6 {
+  /*left: 80%;
+  top: 24%;*/
+  transform: rotate(90deg);
+  animation: plane6 40s infinite linear 20s;
+}
+
+@keyframes boat1 {
+  0% { transform: translate(0, 0)}
+  35% { transform: translate(20%, 20%)}
+  80% { transform: translate(-10%, -10%)}
+  100% { transform: translate(0, 0)}
+}
+
+@keyframes boat2 {
+  0% { transform: translate(0, 0)}
+  35% { transform: translate(80%, 80%)}
+  80% { transform: translate(-50%, -50%)}
+  100% { transform: translate(0, 0)}
+}
+
+@keyframes boat3 {
+  0% { transform: translate(0, 0)}
+  50% { transform: translate(320%, 250%)}
+  100% { transform: translate(0, 0)}
+}
+
+@keyframes boat4 {
+  0% { transform: translate(0, 0)}
+  20% { transform: translate(-50%, -50%)}
+  75% { transform: translate(400%, 200%)}
+  100% { transform: translate(0, 0)}
+}
+
+.boat_1 {
+  left: -2%;
+  top: 56%;
+  animation: boat1 20s infinite linear;
+
+}
+
+.boat_2 {
+  left: 31%;
+  top: 17%;
+  animation: boat2 40s infinite linear;
+}
+
+.boat_3 {
+  left: 74%;
+  top: 80%;
+  animation: boat3 40s infinite linear;
+}
+
+.boat_4 {
+  left: 85%;
+  top: 53%;
+  animation: boat4 50s infinite linear;
+}
+
